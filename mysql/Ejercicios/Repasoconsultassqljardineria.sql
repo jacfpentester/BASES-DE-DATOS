@@ -198,10 +198,9 @@ A partir de aquí se cumple este patrón, se trata de buscar por left join y ver
 “acopla” de la otra tabla está a null o no.
 
 -- 4 Devuelve un listado que muestre solamente los empleados que no tienen una oficina asociada.
-Al hacer left join empleados y oficinas, el que tenga null en oficina
-5. Devuelve un listado que muestre solamente los empleados que no tienen un cliente
-asociado.
-Al hacer left join empleados y clientes por representante, ver los que da null
+-- Al hacer left join empleados y oficinas, el que tenga null en oficina
+-- 5 Devuelve un listado que muestre solamente los empleados que no tienen un cliente asociado.
+/*  Al hacer left join empleados y clientes por representante, ver los que da null
 en cod_cliente
 6. Devuelve un listado que muestre solamente los empleados que no tienen un cliente
 asociado junto con los datos de la oficina donde trabajan.
@@ -216,4 +215,4 @@ producto de la gama Frutales.
 11. Devuelve un listado con los clientes que han realizado algún pedido pero no han
 realizado ningún pago.
 12. Devuelve un listado con los datos de los empleados que no tienen clientes
-asociados y el nombre de su jefe asociado.
+asociados y el nombre de su jefe asociado. */
