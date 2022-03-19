@@ -37,4 +37,19 @@ create table pieza2 as select * from pieza;
 -- Para borrar la tabla eliminaremos sus referencias a otras tablas como en la copia no ha hecho los FK directamente borramos  
 -- Ejemplo en caso de tener relaciones  alter table pieza2 drop foreign key (nombredelfk);  
 
+drop table pieza2;  
+
+9) Crea de nuevo pieza2 y cambia las referencias externas de pieza a pieza2.  
+
+create table pieza2 as select * from pieza;  
+alter table pieza2 add constraint fk_cod_pieza2 foreign key (cod_categoria) references categoria(codigo);  
+
+10) Cambia la clave primaria de una tabla ¿se puede en cualquiera?  
+
+alter table pieza2 add primary key (nombre);  
+en este caso si pero para otras columnas no pues dice que ya hay una primaria aunque cuando creamos la tabla podemos definir varias keys primarias con:
+primary key (campo1,campo2….);  
+pero ningún campo tiene que estar previamente definido con primary key.
+
+
 
