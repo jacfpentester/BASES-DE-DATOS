@@ -32,14 +32,13 @@ delete from Clientes where LimiteCredito=(select min(LimiteCredito) from Cliente
 -- Se podría si ya sabes qué cliente es
 
 -- 8 Inserta una oficina con sede en Granada y tres empleados que sean representantes de ventas y sin jefe asignado.
-INSERT INTO Oficinas VALUES
-('GRAN-ES','GRANADA','España','Andalucía','18004','918837627','C/Alhambra','Bajo A');
+INSERT INTO Oficinas VALUES ('GRAN-ES','GRANADA','España','Andalucía','18004','918837627','C/Alhambra','Bajo A');
 INSERT INTO Empleados (CodigoEmpleado,Nombre,Apellido1,Email,CodigoOficina,Puesto,Extension) 
-VALUES (500,'Domingo','López','isanchez@jardineria.com','GRAN-ES','Rep.Ventas',NULL);
+VALUES (500,'Domingo','López','isanchez@jardineria.com','GRAN-ES','Rep.Ventas',1);
 INSERT INTO Empleados (CodigoEmpleado,Nombre,Apellido1,Email,CodigoOficina,Puesto,Extension) 
-VALUES (501,'Ángel','López','isanchez@jardineria.com','GRAN-ES','Rep.Ventas',NULL); 
+VALUES (501,'Ángel','López','isanchez@jardineria.com','GRAN-ES','Rep.Ventas',1); 
 INSERT INTO Empleados (CodigoEmpleado,Nombre,Apellido1,Email,CodigoOficina,Puesto,Extension) 
-VALUES (502,'Pilar','López','isanchez@jardineria.com','GRAN-ES','Rep.Ventas',NULL)
+VALUES (502,'Pilar','López','isanchez@jardineria.com','GRAN-ES','Rep.Ventas',1)
 
 -- 9 Inserta tres clientes que tengan como representantes de ventas los empleados que hemos creado en el paso anterior.
 SET FOREIGN_KEY_CHECKS=0;
