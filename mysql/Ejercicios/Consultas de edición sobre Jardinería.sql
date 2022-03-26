@@ -27,9 +27,11 @@ ALTER TABLE DetallePedidos ADD Column total_linea NUMERIC(15,2);
 UPDATE DetallePedidos set total_linea=PrecioUnidad*Cantidad*(1+IVA/100);
 
 -- 7 Borra el cliente que menor límite de crédito tenga. ¿Es posible borrarlo solo con una consulta? ¿Por qué?
+SET FOREIGN_KEY_CHECKS=0;
+delete from Clientes where LimiteCredito=(select min(LimiteCredito) from Clientes);
+-- Se podría si ya sabes qué cliente es
 
--- 8 Inserta una oficina con sede en Granada y tres empleados que sean
-representantes de ventas y sin jefe asignado.
+-- 8 Inserta una oficina con sede en Granada y tres empleados que sean representantes de ventas y sin jefe asignado.
 INSERT INTO Oficinas VALUES
 ('GRAN-ES','GRANADA','España','Andalucía','18004','918837627','C/Alhambra','Bajo A');
 INSERT INTO Empleados (CodigoEmpleado,Nombre,Apellido1,Email,CodigoOficina,Puesto,Extension) 
@@ -38,6 +40,8 @@ INSERT INTO Empleados (CodigoEmpleado,Nombre,Apellido1,Email,CodigoOficina,Puest
 VALUES (501,'Ángel','López','isanchez@jardineria.com','GRAN-ES','Rep.Ventas',NULL); 
 INSERT INTO Empleados (CodigoEmpleado,Nombre,Apellido1,Email,CodigoOficina,Puesto,Extension) 
 VALUES (502,'Pilar','López','isanchez@jardineria.com','GRAN-ES','Rep.Ventas',NULL)
+
 -- 9 Inserta tres clientes que tengan como representantes de ventas los empleados que hemos creado en el paso anterior.
+SET FOREIGN_KEY_CHECKS=0;
 INSERT INTO Clientes(CodigoCliente, NombreCliente, telefono,CodigoEmpleadoRepVentas,Fax,LineaDireccion1,ciudad)
 VALUES (290,'Cliente1','918882763',500,'adsf','micasa','otra'), (291,'Cliente2','918882763',501,'adsf','micasa','otra'), (292,'Cliente3','918882763',502,'adsf','micasa','otra');
