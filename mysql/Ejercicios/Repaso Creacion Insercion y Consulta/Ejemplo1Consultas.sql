@@ -1,3 +1,4 @@
+use Instituto;
 -- ¿Qué alumnos han aprobado el examen de GBD?
 SELECT id_alumno from alumno_hace_examen_teorico where id_examen_teorico="TEO-001" AND nota>=5;
 
